@@ -85,3 +85,8 @@ __pypackages__/
 
 # Docker
 docker-compose.override.yml
+
+# Ignore model files
+models/
+*.joblib
+*.pkl

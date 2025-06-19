@@ -1,18 +1,12 @@
-from src.data_processing import load_games
-from src.feature_extraction import aggregate_features
-from src.similarity_calculation import calculate_similarity
+from src.data_preprocessing import load_games
+from src.model_training import prepare_dataset, train_and_evaluate
 
 def main():
   carlsen_games = load_games("data/carlsen_games.pgn")
   other_games = load_games("data/other_players.pgn")
 
-  carlsen_features = aggregate_features(carlsen_games)
-  player_features = aggregate_features(other_games)
-
-  score = calculate_similarity(player_features, carlsen_features)
-
-  print("=== CarlsenMeter Score ===")
-  print(f"Similarity Score: {score} / 100")
+  X, y, eco_encoder = prepare_dataset(carlsen_games, other_games)
+  model = train_and_evaluate(X, y, eco_encoder)
 
 if __name__ == "__main__":
   main()
