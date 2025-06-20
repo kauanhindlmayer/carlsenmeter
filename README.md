@@ -26,11 +26,16 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Place your `.pgn` files in the `data/` folder.
-2. Run the application:
+1. Run the following script to train the model:
 
 ```bash
 python -m src.carlsenmeter
 ```
 
-The system will process the games and output your score, indicating how stylistically close you are to Magnus Carlsen.
+2. Run the web application to analyze your games:
+
+```bash
+python -m webapp.app
+```
+
+3. Open your web browser and navigate to `http://localhost:5000` to upload a PGN file containing your chess games and view your analysis results.
